@@ -1,0 +1,14 @@
+{
+  "name": "llm-chat-assistant",
+  "version": "1.0.0",
+  "description": "シンプルなLLMチャットアシスタント Chrome拡張",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "typescript": "^5.3.3"
+  }
+}

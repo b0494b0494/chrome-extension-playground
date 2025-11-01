@@ -14,18 +14,54 @@
     </div>
     
     <div id="settingsPanel" class="settings-panel hidden">
-      <label for="apiKey">OpenAI API Key:</label>
-      <input type="password" id="apiKey" placeholder="sk-..." />
-      <label for="model">Model:</label>
-      <select id="model">
-        <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
-        <option value="gpt-4">GPT-4</option>
-        <option value="gpt-4-turbo">GPT-4 Turbo</option>
-      </select>
+      <div class="settings-tabs">
+        <button class="settings-tab active" data-tab="api">API設定</button>
+        <button class="settings-tab" data-tab="prompts">プロンプト</button>
+      </div>
+      
+      <div id="apiSettings" class="settings-content">
+        <label for="apiKey">OpenAI API Key:</label>
+        <input type="password" id="apiKey" placeholder="sk-..." />
+        <label for="model">Model:</label>
+        <select id="model">
+          <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+          <option value="gpt-4">GPT-4</option>
+          <option value="gpt-4-turbo">GPT-4 Turbo</option>
+        </select>
+      </div>
+      
+      <div id="promptsSettings" class="settings-content hidden">
+        <label for="promptModeSelect">モード:</label>
+        <select id="promptModeSelect">
+          <option value="normal">通常</option>
+          <option value="wall">壁打ち</option>
+          <option value="rephrase">再構成</option>
+          <option value="preInterview">面談前</option>
+          <option value="feedback">フィードバック</option>
+          <option value="calendar">カレンダー</option>
+        </select>
+        <label for="customPrompt">カスタムプロンプト:</label>
+        <textarea id="customPrompt" rows="8" placeholder="プロンプトを入力..."></textarea>
+        <div class="prompt-actions">
+          <button id="savePromptBtn" class="btn-secondary">保存</button>
+          <button id="resetPromptBtn" class="btn-secondary">デフォルトに戻す</button>
+        </div>
+      </div>
+      
       <button id="saveSettings" class="btn-primary">保存</button>
     </div>
 
+    <div class="mode-selector">
+      <button id="normalModeBtn" class="mode-btn active" data-mode="normal">💬 通常</button>
+      <button id="wallModeBtn" class="mode-btn" data-mode="wall">🧱 壁打ち</button>
+      <button id="rephraseBtn" class="mode-btn" data-mode="rephrase">✍️ 再構成</button>
+      <button id="preInterviewBtn" class="mode-btn" data-mode="preInterview">😰 面談前</button>
+      <button id="feedbackBtn" class="mode-btn" data-mode="feedback">📝 フィードバック</button>
+      <button id="calendarBtn" class="mode-btn" data-mode="calendar">📅 カレンダー</button>
+    </div>
+
     <div id="chatContainer" class="chat-container">
+      <div id="calendarContainer" class="calendar-container hidden"></div>
       <div id="messages" class="messages"></div>
       <div id="loading" class="loading hidden">考え中...</div>
     </div>
@@ -40,6 +76,6 @@
     </div>
   </div>
   
-  <script src="popup.js"></script>
+  <script src="dist/popup.js"></script>
 </body>
 </html>

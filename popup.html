@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM Chat Assistant</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🤖 LLM Chat</h1>
+      <button id="settingsBtn" class="settings-btn" title="設定">⚙️</button>
+    </div>
+    
+    <div id="settingsPanel" class="settings-panel hidden">
+      <label for="apiKey">OpenAI API Key:</label>
+      <input type="password" id="apiKey" placeholder="sk-..." />
+      <label for="model">Model:</label>
+      <select id="model">
+        <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+        <option value="gpt-4">GPT-4</option>
+        <option value="gpt-4-turbo">GPT-4 Turbo</option>
+      </select>
+      <button id="saveSettings" class="btn-primary">保存</button>
+    </div>
+
+    <div id="chatContainer" class="chat-container">
+      <div id="messages" class="messages"></div>
+      <div id="loading" class="loading hidden">考え中...</div>
+    </div>
+
+    <div class="input-area">
+      <textarea 
+        id="userInput" 
+        placeholder="メッセージを入力してください..."
+        rows="3"
+      ></textarea>
+      <button id="sendBtn" class="btn-primary">送信</button>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
